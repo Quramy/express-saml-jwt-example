@@ -12,4 +12,4 @@ auth:
     callback: "http://localhost:3000/static/callback.html"
     cert:
       type: file
-      path: certs/x509cert
+      path: certs/certificate

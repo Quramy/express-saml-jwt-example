@@ -6,15 +6,33 @@
 h1 {
   font-size: 18px;
 }
+h2 {
+  font-size: 14px;
+}
     </style>
   </head>
   <body>
     <h1>Express SAML & JWT Example</h1>
-    <pre id="token"></pre>
-    <button id="auth_btn">SAML login</button>
-    <button id="api">Execute API with token</button>
-    <button id="invalidate_token">Invalidate API token</button>
-    <pre id="api_results"></pre>
+    <section>
+      <h2>Auth and API test</h2>
+      <pre id="token"></pre>
+      <button id="auth_btn">SAML login</button>
+      <button id="api">Execute API with token</button>
+      <button id="invalidate_token">Invalidate API token</button>
+      <pre id="api_results"></pre>
+    </section>
+    <hr />
+    <section>
+      <h2>User management</h2>
+      <ul>
+        <li>
+          <a href="http://localhost:8080/auth">Keycloak admin screen</a>
+        </li>
+        <li>
+          <a href="http://localhost:8080/auth/admin/master/console/#/create/user/testrealm">Add test user</a>
+        </li>
+      </ul>
+    </section>
   </body>
   <script src="client.js"></script>
 </html>
