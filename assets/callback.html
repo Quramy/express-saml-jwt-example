@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    Hello
+    <script>
+    const ott = new URL(location.href).searchParams.get("ott");
+    const hit = document.cookie.match(/state=([^=]*)($|;)/);
+    if (hit) {
+      console.log(hit[1]);
+      fetch("/auth/token", {
+        method: "POST",
+        credentials: "same-origin",
+        headers: {
+          "Content-Type": "application/json",
+          "CSRF-Token": hit[1],
+        },
+        body: JSON.stringify({
+          ott: ott,
+        }),
+      }).then(res => res.json()).then(result => {
+        sessionStorage.setItem("apiToken", result.accessToken);
+        location.replace("/static/index.html");
+      });
+    }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+redis:
+  host: localhost
+  port: 6379
+auth:
+  jwt:
+    issuer: "test-app"
+    secret: "test-app-jwt-secret"
+    expire: 3600
+  saml:
+    issuer: "test-app"
+    entryPoint: "http://localhost:8080/auth/realms/testrealm/protocol/saml/clients/testapp"
+    callback: "http://localhost:3000/static/callback.html"
+    cert:
+      type: file
+      path: certs/x509cert
